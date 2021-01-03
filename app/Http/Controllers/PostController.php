@@ -59,7 +59,18 @@ class PostController extends Controller
         // Save the post to the database
         $post->save();
 
+        // Check if an image is included in the request
+        if (request('image')) {
+            // Get the image from the request
+            $path = request('image');
 
+            // Specify save location for image - public/storage/img/posts
+            $path->storeAs(
+                '/img/posts',
+                'post_img_' . $post->id . '.jpg', // Save images as post_img_[id].jpg
+                'public'
+            );
+        }
         // Attach any tags in the request to the post
         $post->tags()->attach(request('tags'));
 
