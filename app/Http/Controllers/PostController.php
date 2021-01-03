@@ -56,7 +56,6 @@ class PostController extends Controller
         // Set the user_id FK as the logged in user's id
         $post->user_id = Auth::id();
 
-
         // Save the post to the database
         $post->save();
 
