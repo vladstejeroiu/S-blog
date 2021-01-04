@@ -17,6 +17,8 @@ use App\Http\Controllers\PostController;
 
 // Welcome page
 Route::get('/', function () {
+//  $user = user::find(1);
+//  User::find(1)->notify(new AdminResetPasswordNotification);
     return view('welcome');
 });
 
